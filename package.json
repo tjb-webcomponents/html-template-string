@@ -5,8 +5,8 @@
   "main": "./docs/html.min.js",
   "scripts": {
     "build": "npm run build-regular | npm run build-minified",
-    "build-regular": "./node_modules/.bin/babel html-template-string.js -o docs/html-template-string.js",
-    "build-minified": "./node_modules/.bin/babel --minified html-template-string.js -o docs/html.min.js",
+    "build-regular": "cp html-template-string.js docs/html-template-string.js",
+    "build-minified": "babel --minified html-template-string.js -o docs/html.min.js",
     "test": "browserify ./tests/test.js | tape-run | tap-diff"
   },
   "repository": {
@@ -27,6 +27,7 @@
   "homepage": "https://github.com/ThibaultJanBeyer/html-template-string",
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
     "browserify": "latest",
     "rollup-plugin-uglify": "^3.0.0",
     "tap-diff": "^0.1.1",

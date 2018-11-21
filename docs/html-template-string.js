@@ -1,45 +1,47 @@
 class Parser {
   constructor(strings, ...values) {
-    this.values_map = [];
-    this.string = this.concat_string(strings, values);
+    this.values_map = []
+    this.string = this.concat_string(strings, values)
   }
 
   get UUID() {
     let S4 = () => {
-      return ((1 + Math.random()) * 0x10000 | 0).toString(16).substring(1);
-    };
-    return "p" + (S4() + S4() + "-" + S4());
+      return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1)
+    }
+    return "p" + (S4() + S4() + "-" + S4())
   }
 
   // Makes a big string from template literals strings and values, also adds ID-s and pushes {id, value} object to values_map,
   // so we can put values to correct places in dom element.
   concat_string(strings, values) {
-    return strings.map((string, index) => {
-      const value = values[index];
-      const id = this.UUID;
-      switch (true) {
-        case typeof value === "function":
-          // the string part that replaces the ${} inside an element: <div onclick=${myFunc}> => becomes => <div onclick=" `" data-${id}="` ">
-          string = string.concat(`" data-${id}="`);
-          this.values_map.push({
-            id,
-            value
-          });
-          break;
-        case typeof value === "object" || value && value.nodeType === 1:
-          // Add placeholder for the list item
-          string = `${string} <template data-${id}=""></template>`;
-          this.values_map.push({
-            id,
-            value
-          });
-          break;
-        case typeof value === "string":
-          string = `${string}${value || ""}`;
-          break;
-      }
-      return string;
-    }).reduce((prev, current) => prev + current);
+    return strings
+      .map((string, index) => {
+        const value = values[index]
+        const id = this.UUID
+        switch (true) {
+          case typeof value === "function":
+            // the string part that replaces the ${} inside an element: <div onclick=${myFunc}> => becomes => <div onclick=" `" data-${id}="` ">
+            string = string.concat(`" data-${id}="`)
+            this.values_map.push({
+              id,
+              value
+            })
+            break
+          case typeof value === "object" || (value && value.nodeType === 1):
+            // Add placeholder for the list item
+            string = `${string} <template data-${id}=""></template>`
+            this.values_map.push({
+              id,
+              value
+            })
+            break
+          case typeof value === "string":
+            string = `${string}${value || ""}`
+            break
+        }
+        return string
+      })
+      .reduce((prev, current) => prev + current)
   }
 
   // Returns regular dom element
@@ -50,7 +52,8 @@ class Parser {
     div.innerHTML = this.string;
     const placedValues = this.place_values(div).firstElementChild;
 
-    if (placedValues.tagName.toLowerCase() !== 'data-fragment') return placedValues;
+    if (placedValues.tagName.toLowerCase() !== 'data-fragment')
+      return placedValues;
 
     // create and return the fragment
     const fragment = document.createDocumentFragment();
@@ -58,6 +61,7 @@ class Parser {
       fragment.appendChild(placedValues.children[0]);
     }
     return fragment;
+
   }
 
   // Adds event listeners and appends dom elements if neccesary
@@ -75,20 +79,23 @@ class Parser {
         // Remove the on- event, required if we have multiple events on same element
         element.removeAttribute(`on${event_type}`);
         element.removeAttribute(`data-${entry.id}`);
+
       } else if (typeof entry.value == "object") {
         // Swap template placeholder with list object
         if (!entry.value.children) {
           const fragment = document.createDocumentFragment();
           entry.value.forEach(child => fragment.appendChild(child));
           element.replaceWith(fragment);
+
         } else {
           element.replaceWith(entry.value);
         }
+
       }
-    });
+    })
 
     // returns the container back with values added.
-    return container;
+    return container
   }
 }
 
@@ -96,5 +103,24 @@ function html(strings, ...values) {
   return new Parser(strings, ...values).fragment;
 }
 
-window.html = html;
-export default html;
+
+// Make exportable
+//////////////////////////////////////////////////////////////////////////////////////
+/* eslint-disable no-undef */
+
+// Module exporting
+if (typeof module !== 'undefined' && module !== null) {
+  module.exports = html;
+
+  // AMD Modules
+} else if (
+  typeof define !== 'undefined' &&
+  typeof define === 'function' &&
+  define
+) {
+  define(function () {
+    return html;
+  });
+} else {
+  window.html = html;
+}

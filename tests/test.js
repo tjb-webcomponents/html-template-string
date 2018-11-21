@@ -1,5 +1,5 @@
 const test = require("tape")
-const html = require("../html-template-string.js")
+const html = require("../docs/html.min.js")
 
 test("Should create container", t => {
   const element = html `<div id="container"></div>`
