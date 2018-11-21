@@ -6,7 +6,7 @@
   "scripts": {
     "build": "npm run build-regular | npm run build-minified",
     "build-regular": "cp html-template-string.js docs/html-template-string.js",
-    "build-minified": "babel --minified html-template-string.js -o docs/html.min.js",
+    "build-minified": "babel --minified --no-comments html-template-string.js -o docs/html.min.js",
     "test": "browserify ./tests/test.js | tape-run | tap-diff"
   },
   "repository": {
