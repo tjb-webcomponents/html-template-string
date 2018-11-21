@@ -5,28 +5,47 @@ Dead simple and insanely powerful JavaScript `template-string` to HTML DOM Eleme
 
 ## Features
 
-* Small, less than 1kb gziped
-* Renders everything
+- Small, less than 1kb gziped
+- Renders everything
   (as SVG, fragment, regular Dom, what ever you like).
-* Fast
-* Dead simple easy to use
+- Fast
+- Dead simple easy to use
 
 ## How to use 
 
+### Include
 
-* Add script tagg to your HTML file.
+#### via HTML
+
+Add script tagg to your HTML file.
 ```HTML
 <script src="https://thibaultjanbeyer.github.io/html-template-string/html.min.js"></script>
 ```
 
-* Start using the library
+#### via JavaScript
 
+```JavaScript
+import html from 'https://thibaultjanbeyer.github.io/html-template-string/html.min.js'
+```
+
+#### via NPM
+
+```bash
+npm i -S html-template-string
+```
+
+Then in your code:
+
+```JavaScript
+import html from 'html-template-string'
+```
+
+
+### Start using the library
 
 [View live examples here!](https://thibaultjanbeyer.github.io/html-template-string/)
 
 ### Examples
-
-----
 
 #### Create an html element
 To create html elements, as in `jsx`, the elements have to have a container element. Otherwise you’ll have to use a document fragment.
