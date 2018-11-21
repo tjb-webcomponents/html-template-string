@@ -103,22 +103,11 @@ function html(strings, ...values) {
   return new Parser(strings, ...values).fragment;
 }
 
+
 // Make exportable
 //////////////////////////////////////////////////////////////////////////////////////
 /* eslint-disable no-undef */
 
 // Module exporting
-if (typeof module !== 'undefined' && module !== null) {
-  module.exports = html;
-  // AMD Modules
-} else if (
-  typeof define !== 'undefined' &&
-  typeof define === 'function' &&
-  define
-) {
-  define(function () {
-    return html;
-  });
-} else {
-  window.html = html;
-}
+export default html;
+window.html = html;
