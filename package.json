@@ -1,0 +1,36 @@
+{
+  "name": "html-template-string",
+  "version": "1.1.14",
+  "description": "Dead simple and insanely powerful JavaScript `template-string` to HTML DOM Elements renderer.",
+  "main": "./docs/html.min.js",
+  "scripts": {
+    "build": "npm run build-regular | npm run build-minified",
+    "build-regular": "./node_modules/.bin/babel html-template-string.js -o docs/html-template-string.js",
+    "build-minified": "./node_modules/.bin/babel --minified html-template-string.js -o docs/html.min.js",
+    "test": "browserify ./tests/test.js | tape-run | tap-diff"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://thibaultjanbeyer.github.io/html-template-string"
+  },
+  "keywords": [
+    "WebComponents",
+    "Template Strings",
+    "Custom Elements",
+    "ES6"
+  ],
+  "author": "Thibault Jan Beyer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ThibaultJanBeyer/html-template-string/issues"
+  },
+  "homepage": "https://github.com/ThibaultJanBeyer/html-template-string",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "browserify": "latest",
+    "rollup-plugin-uglify": "^3.0.0",
+    "tap-diff": "^0.1.1",
+    "tape": "latest",
+    "tape-run": "^4.0.0"
+  }
+}
