@@ -1,7 +1,7 @@
 # html-template
 
-Dead simple and insanely powerful JavaScript `template-string` to HTML DOM Elements renderer.
-*this is an heavily improved version of [@tonis2]() [kelbas]()* 
+Dead simple and insanely powerful JavaScript `template-string` to HTML DOM Elements renderer.  
+*this is a heavily improved version of [@tonis2](https://github.com/tonis2) [kelbas](https://github.com/tonis2/kelbas)* 
 
 ## Features
 
@@ -123,4 +123,6 @@ const circle = html`<svg height="100" width="100">
 document.body.appendChild(circle);
 ```
 
-------
+# Enjoy
+
+[![Typewriter Gif](https://thibaultjanbeyer.github.io/html-template-string/typewriter.gif)](http://thibaultjanbeyer.com/)
