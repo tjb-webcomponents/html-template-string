@@ -3,12 +3,9 @@
 Dead simple and insanely powerful JavaScript `template-string` to HTML DOM Elements renderer.
 *this is an heavily improved version of [@tonis2]() [kelbas]()* 
 
-![gzip size](http://img.badgesize.io/https://unpkg.com/kelbas/build/kelbas.min.js?compression=gzip)
-![gzip size](http://img.badgesize.io/https://thibaultjanbeyer.github.io/html-template-string/html.min.js?compression=gzip)
-
 ## Features
 
-* Small, less than 1kb
+* Small, less than 1kb gziped
 * Renders everything
   (as SVG, fragment, regular Dom, what ever you like).
 * Fast
