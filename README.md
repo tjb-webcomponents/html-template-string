@@ -19,7 +19,7 @@ Dead simple and insanely powerful JavaScript `template-string` to HTML DOM Eleme
 
 Add script tagg to your HTML file.
 ```HTML
-<script src="https://thibaultjanbeyer.github.io/html-template-string/html.min.js"></script>
+<script type="module" src="https://thibaultjanbeyer.github.io/html-template-string/html.min.js"></script>
 ```
 
 #### via JavaScript
