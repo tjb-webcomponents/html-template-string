@@ -1,6 +1,6 @@
-# html-template
+# html-template-string
 
-Dead simple and insanely powerful JavaScript `template-string` to HTML DOM Elements renderer.  
+Dead simple and insanely powerful JavaScript `template-string` to `HTML DOM Elements` renderer.  
 *this is a heavily improved version of [@tonis2](https://github.com/tonis2) [kelbas](https://github.com/tonis2/kelbas)* 
 
 ## Features
@@ -10,6 +10,13 @@ Dead simple and insanely powerful JavaScript `template-string` to HTML DOM Eleme
   (as SVG, fragment, regular Dom, what ever you like).
 - Fast
 - Dead simple easy to use
+
+## Why?
+
+When working with WebComponents you’ll find yourself creating a lot of HTML inside JavaScript. Usually you’ll use `document.createElement('div')` or the like. Which is a pain in the ass to write but even more painful to read!  
+So various brilliant people came up with a template string or jsx method to do so. Those other libraries are huge in size and complicated. Tonis and I believe that there is a benefit in using our tiny html helper tool. For instance most tools does not allow you to bind events to dom elements inline. Also, often they don’t allow you to create document fragments or the output might not be the same as your input.   
+After working on `kelbas` Tonis and I had different believes in how the engine should work in future so we split up and are following our own way on our own. You’re welcome to do the same, just copy this project and make it work for you or contribute. That is the power of open source.  
+Have a look at the code, its in fact only one file with ~100 lines of code. It’s nothing new, it’s nothing fancy, it’s just straight up usefull.
 
 ## How to use 
 
