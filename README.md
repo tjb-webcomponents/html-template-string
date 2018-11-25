@@ -1,6 +1,7 @@
 # html-template-string
 
 Dead simple and insanely powerful JavaScript `template-string` to `HTML DOM Elements` renderer.  
+Converts a HTML String in JavaScript to a HTML DOM Element.  
 
 ## Features
 
