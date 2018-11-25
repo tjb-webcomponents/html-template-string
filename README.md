@@ -26,13 +26,13 @@ Have a look at the code, its in fact only one file with ~100 lines of code. Itâ€
 
 Add script tagg to your HTML file.
 ```HTML
-<script type="module" src="https://thibaultjanbeyer.github.io/html-template-string/html.min.js"></script>
+<script type="module" src="https://tjb-webcomponents.github.io/html-template-string/html.min.js"></script>
 ```
 
 #### via JavaScript
 
 ```JavaScript
-import html from 'https://thibaultjanbeyer.github.io/html-template-string/html.min.js'
+import html from 'https://tjb-webcomponents.github.io/html-template-string/html.min.js'
 ```
 
 #### via NPM
@@ -50,7 +50,7 @@ import html from 'html-template-string'
 
 ### Start using the library
 
-[View live examples here!](https://thibaultjanbeyer.github.io/html-template-string/)
+[View live examples here!](https://tjb-webcomponents.github.io/html-template-string/)
 
 ### Examples
 
@@ -132,4 +132,4 @@ document.body.appendChild(circle);
 
 # Enjoy
 
-[![Typewriter Gif](https://thibaultjanbeyer.github.io/html-template-string/typewriter.gif)](http://thibaultjanbeyer.com/)
+[![Typewriter Gif](https://tjb-webcomponents.github.io/html-template-string/typewriter.gif)](http://thibaultjanbeyer.com/)
