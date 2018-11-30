@@ -29,7 +29,6 @@
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "browserify": "latest",
-    "rollup-plugin-uglify": "^3.0.0",
     "tap-diff": "^0.1.1",
     "tape": "latest",
     "tape-run": "^4.0.0"

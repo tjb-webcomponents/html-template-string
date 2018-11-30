@@ -84,7 +84,8 @@ class Parser {
         // Swap template placeholder with list object
         if (!entry.value.children) {
           const fragment = document.createDocumentFragment();
-          entry.value.forEach(child => fragment.appendChild(child));
+          while(entry.value.length)
+            fragment.appendChild(entry.value[0]);
           element.replaceWith(fragment);
 
         } else {
