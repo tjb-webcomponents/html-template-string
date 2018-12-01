@@ -21,7 +21,7 @@ class Parser {
         switch (true) {
           case typeof value === "function":
             // the string part that replaces the ${} inside an element: <div onclick=${myFunc}> => becomes => <div onclick=" `" data-${id}="` ">
-            string = string.concat(`" data-${id}="`)
+            string = string.concat(`temp" data-${id}="`)
             this.values_map.push({
               id,
               value
@@ -73,7 +73,8 @@ class Parser {
 
       if (typeof entry.value == "function") {
         // Find onclick, onmouseover .. etc strings values so we can add event listeners to them.
-        const event_type = /(on)\w+/g.exec(element.outerHTML)[0].split("on")[1];
+        // so select on(anything)="temp" and use that (anything) part as listener name
+        const event_type = /on(.*)="temp"+/g.exec(element.outerHTML)[0].split('="temp')[0].substring(2);
         // Add the event listener to the element
         element.addEventListener(event_type, entry.value.bind(this));
         // Remove the on- event, required if we have multiple events on same element
@@ -84,7 +85,7 @@ class Parser {
         // Swap template placeholder with list object
         if (!entry.value.children) {
           const fragment = document.createDocumentFragment();
-          while(entry.value.length)
+          while (entry.value.length)
             fragment.appendChild(entry.value[0]);
           element.replaceWith(fragment);
 
