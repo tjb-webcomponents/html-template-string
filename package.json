@@ -1,6 +1,6 @@
 {
   "name": "html-template-string",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Dead simple and insanely powerful JavaScript `template-string` to HTML DOM Elements renderer.",
   "main": "./docs/html.min.js",
   "scripts": {
