@@ -74,7 +74,7 @@ class Parser {
       if (typeof entry.value == "function") {
         // Find onclick, onmouseover .. etc strings values so we can add event listeners to them.
         // so select on(anything)="temp" and use that (anything) part as listener name
-        const event_type = /on(.*)="temp"+/g.exec(element.outerHTML)[0].split('="temp')[0].substring(2);
+        const event_type = /on([^\s]*)="temp"+/g.exec(element.outerHTML)[0].split('="temp')[0].substring(2);
         // Add the event listener to the element
         element.addEventListener(event_type, entry.value.bind(this));
         // Remove the on- event, required if we have multiple events on same element
