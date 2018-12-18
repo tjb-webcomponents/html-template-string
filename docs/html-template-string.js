@@ -69,7 +69,7 @@ class Parser {
     this.values_map.forEach(entry => {
 
       let element = container.querySelector(`[data-${entry.id}]`);
-      if (!element) throw new Error(`Warning: could not match event listener --- could not find element with id ${entry.id} --- Function must be defined between parentheses for example "\${calledFunction}"`);
+      if (!element) throw new Error(`Error: could not match event listener --- could not find element with id ${entry.id} --- Supposed to place ${element} --- Function must be defined between parentheses for example "\${calledFunction}"`);
 
       if (typeof entry.value == "function") {
         // Find onclick, onmouseover .. etc strings values so we can add event listeners to them.
