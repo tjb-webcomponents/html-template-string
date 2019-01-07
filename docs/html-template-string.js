@@ -46,53 +46,54 @@ class Parser {
 
   // Returns regular dom element
   get fragment() {
-
     // create container & place values
-    const div = document.createElement('div');
-    div.innerHTML = this.string;
-    const placedValues = this.place_values(div).firstElementChild;
+    const div = document.createElement("div")
+    div.innerHTML = this.string
+    const placedValues = this.place_values(div).firstElementChild
 
-    if (placedValues.tagName.toLowerCase() !== 'data-fragment')
-      return placedValues;
+    if (placedValues.tagName.toLowerCase() !== "data-fragment") return placedValues
 
     // create and return the fragment
-    const fragment = document.createDocumentFragment();
+    const fragment = document.createDocumentFragment()
     while (placedValues.children.length > 0) {
-      fragment.appendChild(placedValues.children[0]);
+      fragment.appendChild(placedValues.children[0])
     }
-    return fragment;
-
+    return fragment
   }
 
   // Adds event listeners and appends dom elements if neccesary
   place_values(container) {
     this.values_map.forEach(entry => {
-
-      let element = container.querySelector(`[data-${entry.id}]`);
-      if (!element) throw new Error(`Error: could not match event listener --- could not find element with id ${entry.id} --- Supposed to place ${element} --- Function must be defined between parentheses for example "\${calledFunction}"`);
+      let element = container.querySelector(`[data-${entry.id}]`)
+      if (!element)
+        throw new Error(
+          `Error: could not match event listener --- could not find element with id ${
+            entry.id
+          } --- Supposed to place ${element} --- Function must be defined between parentheses for example "\${calledFunction}" --- Container:`,
+          container
+        )
 
       if (typeof entry.value == "function") {
         // Find onclick, onmouseover .. etc strings values so we can add event listeners to them.
         // so select on(anything)="temp" and use that (anything) part as listener name
-        const event_type = /on([^\s]*)="temp"+/g.exec(element.outerHTML)[0].split('="temp')[0].substring(2);
+        const event_type = /on([^\s]*)="temp"+/g
+          .exec(element.outerHTML)[0]
+          .split('="temp')[0]
+          .substring(2)
         // Add the event listener to the element
-        element.addEventListener(event_type, entry.value.bind(this));
+        element.addEventListener(event_type, entry.value.bind(this))
         // Remove the on- event, required if we have multiple events on same element
-        element.removeAttribute(`on${event_type}`);
-        element.removeAttribute(`data-${entry.id}`);
-
+        element.removeAttribute(`on${event_type}`)
+        element.removeAttribute(`data-${entry.id}`)
       } else if (typeof entry.value == "object") {
         // Swap template placeholder with list object
         if (!entry.value.children) {
-          const fragment = document.createDocumentFragment();
-          while (entry.value.length)
-            fragment.appendChild(entry.value[0]);
-          element.replaceWith(fragment);
-
+          const fragment = document.createDocumentFragment()
+          while (entry.value.length) fragment.appendChild(entry.value[0])
+          element.replaceWith(fragment)
         } else {
-          element.replaceWith(entry.value);
+          element.replaceWith(entry.value)
         }
-
       }
     })
 
@@ -102,14 +103,13 @@ class Parser {
 }
 
 function html(strings, ...values) {
-  return new Parser(strings, ...values).fragment;
+  return new Parser(strings, ...values).fragment
 }
-
 
 // Make exportable
 //////////////////////////////////////////////////////////////////////////////////////
 /* eslint-disable no-undef */
 
 // Module exporting
-export default html;
-window.html = html;
+export default html
+window.html = html
