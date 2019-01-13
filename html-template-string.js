@@ -20,6 +20,7 @@ class Parser {
         const id = this.UUID
         switch (true) {
           case typeof value === "function":
+            // handle METHODS
             // the string part that replaces the ${} inside an element: <div onclick=${myFunc}> => becomes => <div onclick=" `" data-${id}="` ">
             string = string.concat(`temp" data-${id}="`)
             this.values_map.push({
@@ -27,7 +28,8 @@ class Parser {
               value
             })
             break
-          case typeof value === "object" || (value && value.nodeType === 1):
+          case (typeof value === "object" && value != null) || (value && value.nodeType === 1):
+            // handle NODES
             // Add placeholder for the list item
             string = `${string} <template data-${id}=""></template>`
             this.values_map.push({
@@ -35,7 +37,8 @@ class Parser {
               value
             })
             break
-          case typeof value === "string" || typeof value === "undefined":
+          case typeof value === "string" || typeof value != true:
+            // handly anyting ELSE
             string = `${string}${value || ""}`
             break
         }
