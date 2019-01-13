@@ -35,7 +35,7 @@ class Parser {
               value
             })
             break
-          case typeof value === "string":
+          case typeof value === "string" || typeof value === "undefined":
             string = `${string}${value || ""}`
             break
         }
