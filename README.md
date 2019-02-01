@@ -18,7 +18,7 @@ So various brilliant people came up with a template string or jsx method to do s
 After [kelbas](https://github.com/tonis2/kelbas) [@tonis2](https://github.com/tonis2) and I had different believes in how the engine should look like and be used in future so we split up and are following our own path. You’re welcome to do the same, just copy this project and make it work for you or contribute. That is the power of open source.  
 Have a look at the code, its in fact only one file with ~100 lines of code. It’s nothing new, it’s nothing fancy, it’s just straight up usefull.  
 
-### Example useage
+### Example (before & after)
 
 ![before - after example](/example.png)
 
