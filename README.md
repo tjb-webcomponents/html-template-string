@@ -20,7 +20,7 @@ Have a look at the code, its in fact only one file with ~100 lines of code. It�
 
 ## Hey but then I won’t have colorcoding or intellisense ? No.
 
-Not true. Since this is common practice, you’ll find a lot of plugins that support this scenario.
+Not true. Since this is common practice, you’ll find a lot of plugins that support this scenario.  
 For Visual Studio Code, I use this one: https://marketplace.visualstudio.com/items?itemName=pushqrdx.inline-html
 
 ## How to use 
